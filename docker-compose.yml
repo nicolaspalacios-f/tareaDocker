@@ -1,0 +1,42 @@
+version: "2"
+
+
+services:
+  backend1:
+    environment:
+      - PORT=35001
+    build:
+      context: ./LogService
+      dockerfile: Dockerfile
+    container_name: LogService1
+    links:
+      - db
+  backend2:
+    environment:
+      - PORT=35002
+    build:
+      context: ./LogService
+      dockerfile: Dockerfile
+    container_name: LogService2
+    links:
+      - db
+  backend3:
+    environment:
+      - PORT=35003
+    build:
+      context: ./LogService
+      dockerfile: Dockerfile
+    container_name: LogService3
+    links:
+      - db
+
+  db:
+    image: mongo:3.6.1
+    container_name: db
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+    command: mongod
+volumes:
+  mongodb:
+  mongodb_config:

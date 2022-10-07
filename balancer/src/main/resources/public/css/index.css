@@ -1,0 +1,16 @@
+body{
+    padding: 3%;
+    background-color:white;
+    color: black;
+    font-family:monospace;
+}
+table *{
+    border: 1px solid;
+    padding: 1%;
+    text-align: center;
+    align-items: center;
+    margin: 1%;
+  }
+th{
+      width: 33%;
+}

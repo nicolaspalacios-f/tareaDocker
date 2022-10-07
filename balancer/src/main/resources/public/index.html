@@ -1,0 +1,29 @@
+<html>
+    <script src="js/submit.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+<body>
+    <section>
+        <h1>Bienvenidos a la conexion con mongoDB</h1>
+        <p>El funcionamiento es el siguiente tienes ingresas una cadena en la parte de abajo y nosotros la almacenamos, te mostraremos
+           las 10 cadenas que estan en la base de datos, ten encuenta que es rotativa.
+        </p>
+    </section>
+    <section>
+        <div>
+                <input id="cadena" placeholder="Cadena a guardar" type="text" class="cadenainput" />
+                <button onclick="postcadena()" >Submit</button>
+        </div>
+        <div class="table">
+            <h2>Guardado en la base</h2>
+            <table id="tabla">
+                <tr>
+                    <th>Fecha de guardado</th>
+                    <th>Cadena Guardada</th>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+</body>
+
+</html>
