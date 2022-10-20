@@ -22,7 +22,7 @@ public class Balancer {
         staticFiles.location("/public");
         port(getPort());
         post("/balancer", (req, res) -> {
-            res.header("Access-Control-Allow-Origin","*");
+            res.header("Access-Control-Allow-Origin", "*");
             res.type("application/json");
             return balancer(req.queryParams("value"));
         });
@@ -41,12 +41,12 @@ public class Balancer {
         return doPost(a, temp);
     }
 
-    public static String doPost(String a,String f) {
+    public static String doPost(String a, String f) {
         String linea = "";
         try {
-            String data = "value="+a;
+            String data = "value=" + a;
             System.out.println(f);
-            URL url = new URL("http://backend"+f+":3500"+f);
+            URL url = new URL("http://backend" + f + ":3500" + f);
             System.out.println(url.toString());
             HttpURLConnection con = (HttpURLConnection) url.openConnection();
             con.setRequestMethod("POST");
@@ -54,6 +54,7 @@ public class Balancer {
             con.getOutputStream().write(data.getBytes("UTF-8"));
             BufferedReader reader = new BufferedReader(new InputStreamReader(con.getInputStream()));
             linea = reader.readLine();
+            System.out.println(linea);
             reader.close();
         } catch (MalformedURLException me) {
             System.err.println("MalformedURLException: " + me);

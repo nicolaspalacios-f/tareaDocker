@@ -1,10 +1,10 @@
 FROM openjdk:8
 
-WORKDIR /labDocker/LogService/bin
+WORKDIR /tareaDocker/LogService/bin
 
 
-COPY /target/classes /labDocker/LogService/
+COPY /target/classes /tareaDocker/LogService/bin/target/classes
 
-COPY /target/dependency /labDocker/LogService/bin/dependency
+COPY /target/dependency /tareaDocker/LogService/bin/target/dependency
 
-CMD ["java","-cp","./classes:./dependency/*","edu.escuelaing.arep.app.App"]
+CMD ["java","-cp","target/classes:target/dependency/*","edu.escuelaing.arep.app.App"]

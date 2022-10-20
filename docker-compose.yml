@@ -29,6 +29,19 @@ services:
     container_name: LogService3
     links:
       - db
+  balance:
+      environment:
+        - PORT=35000
+      build:
+        context: ./balancer
+        dockerfile: Dockerfile
+      container_name: balance
+      ports:
+        - "35000:35000"
+      links:
+        - backend1
+        - backend2
+        - backend3  
 
   db:
     image: mongo:3.6.1

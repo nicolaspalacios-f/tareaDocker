@@ -1,10 +1,10 @@
 FROM openjdk:8
 
-WORKDIR /labDocker/balancer/bin
+WORKDIR /tareaDocker/balancer/bin
 
 
-COPY /target/classes /labDocker/balancer/bin/classes
+COPY /target/classes /tareaDocker/balancer/bin/target/classes
 
-COPY /target/dependency /labDocker/balancer/bin/dependency
+COPY /target/dependency /tareaDocker/balancer/bin/target/dependency
 
-CMD ["java","-cp","./classes:./dependency/*","edu.escuelaing.arep.Balancer"]
+CMD ["java","-cp","target/classes:target/dependency/*","edu.escuelaing.arep.Balancer"]
